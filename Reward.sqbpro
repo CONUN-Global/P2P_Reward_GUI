@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="E:/P2P_Reward_GUI/Reward.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="175"/><column_width id="3" width="3697"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,11:mainRank_Reward"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">update Reward Set 
+
+drop table Rank_Reward
+Create Table Rank_Reward
+(
+	Level	int, 
+	Project_ID text, 
+	SubTask_ID text, 
+	Wallet_Address text, 
+	Work_Time REAL,
+	Price REAL
+)
+
+
+
+insert into Rank_Reward (Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, Price) SELECT per_rank, Project_ID, SubTask_ID, Wallet_Address, Work_Time, 0 FROM (SELECT Project_ID, SubTask_ID, Wallet_Address, Work_Time, CAST(PERCENT_RANK() OVER (ORDER BY Work_Time ASC)*100 AS INTEGER) as per_rank FROM Reward Where Project_ID = 10002) a WHERE Project_ID = 10002
+
+select * From Reward
+
+select * from Reward
+select * From Rank_Reward
+
+delete From Rank_Reward
+delete From Reward
+
+ and Wallet_Address = '0x78541fa80631e3b31097B85E954d0942E88a79D9'
+
+ insert into Rank_Reward (Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, Price) IN (SELECT a.per_rank, a.Project_ID, a.SubTask_ID, a.Wallet_Address, a.Work_Time, 0 FROM (SELECT Project_ID, SubTask_ID, Wallet_Address, Work_Time, PERCENT_RANK() OVER (ORDER BY Work_Time ASC)*100 as per_rank FROM Reward Where Project_ID = '10002') a WHERE Project_ID = '10002';
+
+ 
+ insert into Rank_Reward (Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, Price) SELECT CAST(per_rank as INTEGER), Project_ID, SubTask_ID, Wallet_Address, Work_Time, 0 FROM (SELECT Project_ID, SubTask_ID, Wallet_Address, Work_Time, PERCENT_RANK() OVER (ORDER BY Work_Time ASC)*100 as per_rank FROM Reward Where Project_ID = 10002) a WHERE Project_ID = 10002;
+ 
+ insert into Rank_Reward (Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, Price) 
+ 
+SELECT per_rank AS Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, 0 AS Price FROM (SELECT PERCENT_RANK() OVER (ORDER BY Work_Time ASC) as per_rank, Project_ID, SubTask_ID, Wallet_Address, Work_Time FROM Reward Where Project_ID = 10002) a WHERE a.Project_ID = 10002 and a.per_rank &lt;= 0.10;
+ 
+ select * From Rank_Reward Where Project_ID = 10002 
+ 
+ SELECT CAST(per_rank as INTEGER) AS Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, 0 AS Price FROM (SELECT Project_ID, SubTask_ID, Wallet_Address, Work_Time, PERCENT_RANK() OVER (ORDER BY Work_Time ASC)*100 as per_rank FROM Reward Where Project_ID = 10002) WHERE Project_ID = 10002
+ 
+ insert or replace into Rank_Reward(Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, Price) SELECT per_rank*100 AS Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, 0 AS Price FROM (SELECT PERCENT_RANK() OVER (ORDER BY Work_Time ASC) as per_rank, Project_ID, SubTask_ID, Wallet_Address, Work_Time FROM Reward Where Project_ID = '10002') a WHERE Project_ID = '10002';
+ 
+ 
+ CREATE TABLE Rank_Reward (Level INTEGER NOT NULL DEFAULT 0, 
+					Project_ID	TEXT NOT NULL DEFAULT 'None',
+					SubTask_ID	TEXT NOT NULL DEFAULT 'None',
+					Wallet_Address	TEXT NOT NULL CHECK(length(Wallet_Address) &gt; 0 AND length(Wallet_Address) &lt; 255),
+					Work_Time	REAL NOT NULL DEFAULT 0,
+					Price	REAL NOT NULL DEFAULT 0.0,
+					PRIMARY KEY(Project_ID, SubTask_ID), CONSTRAINT Wallet_Address CHECK(Wallet_Address like '0x%'));
+					
+select * From Rank_Reward (Select Rank_Reward 
+
+SELECT per_rank AS Level, Project_ID, SubTask_ID, Wallet_Address, Work_Time, 0 AS Price FROM (SELECT PERCENT_RANK() OVER (ORDER BY Work_Time ASC) as per_rank, Project_ID, SubTask_ID, Wallet_Address, Work_Time FROM Reward Where Project_ID = 10002) a WHERE a.Project_ID = 10002 and a.per_rank &lt;= 0.10;
+
+select count(*), * From Rank_Reward Where Project_ID = 10002 and Level &lt;= 10
+select * From Rank_Reward Where Project_ID = 10002
+update Rank_Reward</sql><current_tab id="0"/></tab_sql></sqlb_project>

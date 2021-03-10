@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="E:/P2P_Reward_GUI/Project.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="175"/><column_width id="3" width="1641"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,7:mainProject"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">select * From Project
+delete From Project
+
+select * From Result
+select * From Reward
+delete From Reward
+delete From Project
+select * from Project Where ProjectID = 10003;
+select * from Reward Where Result_FileName = 'resultinfo_10009.json';
+
+select sum(Work_Time) AS 'Total_Work_Time', * from Reward Where Result_FileName = 'resultinfo_10009.json';
+
+select strftime(%s, '2020-12-30 11:11:48'), datetime
+
+select Start_DateTime, (datetime(Start_DateTime, '+2522000 seconds')) AS EndDate From Project Where Project_ID = 10009;
+, strftime('%s', Start_DateTime) - strftime('%s',(datetime(Start_DateTime, '+25220 seconds'))) AS Spend_Time From Project Where Project_ID = 10009;
+
+select 2020-12-16 04:49:30, (datetime(2020-12-16 04:49:30, '+161 seconds')) From Project Where Project_ID = 10002;
+
+select ProjectID, '2020-12-16 04:49:30', (datetime('2020-12-16 04:49:30', '+161 seconds')) From Project Where ProjectID = 10002;
+select * From Project
+select '2020-12-30 11:11:48', (datetime('2020-12-30 11:11:48', '+2211 seconds')) From Project Where ProjectID = 10009;</sql><current_tab id="0"/></tab_sql></sqlb_project>
